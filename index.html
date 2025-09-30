@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jijuw Beauty</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,59 +19,164 @@
       <a href="#about">Tentang</a>
       <a href="#products">Produk</a>
       <a href="#contact">Kontak</a>
+      <a href="#cart">🛒 Keranjang <span id="cart-count">0</span></a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-text">
-      <h1>Cantik Alami, Percaya Diri Sejati</h1>
-      <p>Produk skincare dengan bahan alami, diformulasikan untuk kulit sehat dan bercahaya.</p>
-      <a href="#products" class="btn">Belanja Sekarang</a>
-    </div>
+  <!-- Home -->
+  <section id="home" class="home">
+    <h1>Selamat Datang di Jijuw Beauty 🌸</h1>
+    <p>Rasakan sentuhan alami untuk kulit sehat, segar, dan bercahaya setiap hari.  
+       Karena kamu pantas tampil percaya diri tanpa ribet! ✨</p>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <h2>Tentang Kami</h2>
-    <p>
-      Jijuw Beauty adalah brand lokal yang menghadirkan perawatan kulit berkualitas tinggi, 
-      terbuat dari bahan alami, aman, dan ramah lingkungan.
-    </p>
+  <!-- Tentang -->
+  <section id="about" class="about">
+    <h2>Mengenal Jijuw Beauty 💖</h2>
+    <p>Kami percaya kecantikan sejati datang dari kulit yang sehat dan terawat.  
+    Produk kami alami, aman, dan ramah lingkungan 🌱, diformulasikan dengan cinta untuk kulit glowing dan fresh setiap hari ✨.</p>
+    <p>Visi kami: membuat setiap perempuan merasa nyaman dengan kulitnya sendiri 💖.</p>
   </section>
 
-  <!-- Products Section -->
-  <section id="products" class="section">
+  <!-- Produk -->
+  <section id="products" class="products">
     <h2>Produk Kami</h2>
-    <div class="product-list">
+    <div class="product-container">
+
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1612817159949-195b6a75d0c7?w=400" alt="Moisturizer">
+        <img src="images/moisturizer.jpg" alt="Moisturizer">
         <h3>Moisturizer</h3>
-        <p>Melembapkan kulit agar tetap segar sepanjang hari.</p>
+        <p>Hydration boost sepanjang hari, bikin kulitmu segar, halus, dan lembap 💦.</p>
+        <p class="price">Rp 75.000</p>
+        <div class="product-actions">
+          <button class="btn-detail" onclick="showDetail('Moisturizer', 'Hydration boost sepanjang hari, bikin kulitmu segar, halus, dan lembap 💦.', 'Rp 75.000', 'images/moisturizer.jpg')">Detail</button>
+          <button class="btn-cart" onclick="addToCart('Moisturizer', 75000)">+ Keranjang</button>
+        </div>
       </div>
+
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1585238342020-96629f5d7c8c?w=400" alt="Serum">
+        <img src="images/serum.jpg" alt="Serum">
         <h3>Serum</h3>
-        <p>Memberikan nutrisi mendalam untuk kulit bercahaya.</p>
+        <p>Formulasi ringan dengan nutrisi mendalam. Kulit glowing, sehat, dan makin percaya diri ✨.</p>
+        <p class="price">Rp 120.000</p>
+        <div class="product-actions">
+          <button class="btn-detail" onclick="showDetail('Serum', 'Formulasi ringan dengan nutrisi mendalam. Kulit glowing, sehat, dan makin percaya diri ✨.', 'Rp 120.000', 'images/serum.jpg')">Detail</button>
+          <button class="btn-cart" onclick="addToCart('Serum', 120000)">+ Keranjang</button>
+        </div>
       </div>
+
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1612810806563-4c02aa01f9f8?w=400" alt="Lip Balm">
+        <img src="images/lipbalm.jpg" alt="Lip Balm">
         <h3>Lip Balm</h3>
-        <p>Menjaga kelembapan bibir agar tetap lembut dan sehat.</p>
+        <p>Bibir lembut, sehat, dan lembap natural tanpa pecah-pecah 💋.</p>
+        <p class="price">Rp 35.000</p>
+        <div class="product-actions">
+          <button class="btn-detail" onclick="showDetail('Lip Balm', 'Bibir lembut, sehat, dan lembap natural tanpa pecah-pecah 💋.', 'Rp 35.000', 'images/lipbalm.jpg')">Detail</button>
+          <button class="btn-cart" onclick="addToCart('Lip Balm', 35000)">+ Keranjang</button>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section contact">
-    <h2>Kontak Kami</h2>
-    <p>Email: jijuwbeauty@example.com</p>
-    <p>Instagram: <a href="https://instagram.com" target="_blank">@jijuwbeauty</a></p>
+  <!-- Keranjang -->
+  <section id="cart" class="cart">
+    <h2>Keranjang Belanja</h2>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Produk</th>
+          <th>Harga</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p id="total">Total: Rp 0</p>
+  </section>
+
+  <!-- Kontak -->
+  <section id="contact" class="contact">
+    <h2>Hubungi Kami 💌</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> jijuwbeauty@gmail.com</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/jijuwbeauty" target="_blank">@jijuwbeauty</a></p>
+      <p><strong>Alamat:</strong> Jl. Rumah No. 123, Malang</p>
+    </div>
+    <form>
+      <input type="text" placeholder="Nama Kamu" required>
+      <input type="email" placeholder="Email Aktif" required>
+      <textarea placeholder="Pesan atau pertanyaan kamu..." required></textarea>
+      <button type="submit">Kirim Pesan ✨</button>
+    </form>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Jijuw Beauty. All Rights Reserved.</p>
+    <p>© 2025 Jijuw Beauty. All rights reserved.</p>
   </footer>
+
+  <!-- Modal Detail -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modal-img" src="" alt="Produk Detail">
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+      <p id="modal-price" class="price"></p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    let cart = [];
+
+    function addToCart(productName, price) {
+      cart.push({ name: productName, price: price });
+      updateCart();
+      alert(productName + " berhasil ditambahkan ke keranjang!");
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartTable = document.querySelector("#cart-table tbody");
+      const cartCount = document.getElementById("cart-count");
+      const totalDisplay = document.getElementById("total");
+
+      cartTable.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartTable.innerHTML += `
+          <tr>
+            <td>${item.name}</td>
+            <td>Rp ${item.price.toLocaleString()}</td>
+            <td><button onclick="removeFromCart(${index})">Hapus</button></td>
+          </tr>
+        `;
+      });
+
+      cartCount.textContent = cart.length;
+      totalDisplay.textContent = "Total: Rp " + total.toLocaleString();
+    }
+
+    // Modal detail produk
+    function showDetail(name, desc, price, img) {
+      document.getElementById("modal-title").innerText = name;
+      document.getElementById("modal-desc").innerText = desc;
+      document.getElementById("modal-price").innerText = price;
+      document.getElementById("modal-img").src = img;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
