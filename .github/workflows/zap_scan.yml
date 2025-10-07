@@ -1,30 +1,15 @@
 name: OWASP ZAP Scan
-
 on:
-  schedule:
-    - cron: '0 12 * * 0' # jalan tiap minggu
   workflow_dispatch:
 
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      security-events: write
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: Run OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.11.0
+      - name: OWASP ZAP Scan
+        uses: zaproxy/action-baseline@v0.7.0
         with:
-          target: 'https://jijuw-beauty.infinityfreeapp.com'  # ganti dengan URL websitemu
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
-
-      - name: Upload ZAP Scan Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: ZAP-Report
-          path: report_html.html
+          target: "https://jennyadeliajayadi.wuaze.com"   # ganti dengan URL hosting kamu
